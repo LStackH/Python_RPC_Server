@@ -8,6 +8,7 @@ def main():
     proxy = xmlrpc.client.ServerProxy(f"http://localhost:{port}/")
     print(f"Connection to http://localhost:{port}\n")
 
+    # Loop for client interface
     while True:
         print("Notebook - What would you like to do?")
         print("1) Add a note to a topic")
