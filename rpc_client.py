@@ -18,6 +18,8 @@ def main():
         choice = input("Enter your choice: ").strip()
         
         match choice:
+
+            # Add notes by topic
             case "1":
                 topic = input("Topic name: ").strip()
                 if not topic:
@@ -39,6 +41,7 @@ def main():
                 except Exception as e:
                     print("Error calling add_note_to_topic:", e)
 
+            # View notes by topic
             case "2":
                 topic = input("Topic name: ").strip()
                 if not topic:
@@ -56,7 +59,8 @@ def main():
                         print(f"No notes found for topic '{topic}'.")
                 except Exception as e:
                     print("Error calling get_notes_by_topic:", e)
-
+            
+            # Sarch wikipedia for link
             case "3": 
                 topic = input("Topic name: ").strip()
                 if not topic:
@@ -70,6 +74,7 @@ def main():
                 # Generate timestamp automatically
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+                # Try to pass the information to the server
                 try:
                     result = proxy.search_wikipedia(topic, search_term, timestamp)
                     print("[Server Response]:", result)
